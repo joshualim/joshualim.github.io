@@ -414,10 +414,19 @@ function successfullyDecoded() {
   displaySuccessMessage();
 }
 
+function sleep(milliseconds) {
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
+}
+
 function displaySuccessMessage() {
   addClassName(codeElement, 'solved');
   codeElement.innerHTML = "Well done on solving the code: now claim your cheesy reward! ";
-  codeElement.href = "https://www.youtube.com/watch?v=hj7LRuusFqo";
+  sleep(3000);
+  window.open("https://www.youtube.com/watch?v=hj7LRuusFqo");
 }
 
 
